@@ -8,6 +8,8 @@ import com.example.users_rating_test_task.persistence.entity.Rating;
 import com.example.users_rating_test_task.service.LevelService;
 import com.example.users_rating_test_task.service.RatingService;
 import com.example.users_rating_test_task.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class RatingFacadeImpl implements RatingFacade {
 
+    private final Logger logger = LoggerFactory.getLogger("info");
     private final UserService userService;
     private final LevelService levelService;
     private final RatingService ratingService;
@@ -30,12 +33,15 @@ public class RatingFacadeImpl implements RatingFacade {
     @Override
     public void setInfo(RatingRequestDto ratingRequestDto) {
         if (ratingRequestDto.getResult() == null) {
+            logger.error("object: RatingRequestDto; result can not be empty" + ratingRequestDto.toString());
             throw new IncorrectInputData("result can not be empty");
         }
         if (ratingRequestDto.getUser_id() == null) {
+            logger.error("object: RatingRequestDto; user can not be empty" + ratingRequestDto.toString());
             throw new IncorrectInputData("user can not be empty");
         }
         if (ratingRequestDto.getLevel_id() == null) {
+            logger.error("object: RatingRequestDto; level can not be empty" + ratingRequestDto.toString());
             throw new IncorrectInputData("level can not be empty");
         }
         Rating rating = new Rating();

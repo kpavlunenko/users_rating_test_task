@@ -28,13 +28,14 @@ public class RatingServiceImpl implements RatingService {
                         &&rating.getLevel().getId().equals(entity.getLevel().getId()))
                 .findFirst();
         if (ratingOptional.isEmpty()) {
+            logger.info("object: Rating; stage: start; operation: create; " + entity.toString());
             ratingDao.create(entity);
-            logger.info("test");
-            logger.warn("test2");
+            logger.info("object: Rating; stage: finish; operation: create");
         } else {
             Rating rating = ratingOptional.get();
             if (rating.getResult() < entity.getResult()) {
                 rating.setResult(entity.getResult());
+                logger.info("object: Rating; stage: finish; operation: update; "  + rating.toString() + " on " + entity.toString());
             }
         }
     }

@@ -29,4 +29,13 @@ public class RatingRequestDto {
     public void setResult(Long result) {
         this.result = result;
     }
+
+    @Override
+    public String toString() {
+        return "RatingRequestDto{" +
+                "user_id=" + user_id +
+                ", level_id=" + level_id +
+                ", result=" + result +
+                '}';
+    }
 }

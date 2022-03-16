@@ -10,6 +10,15 @@ public class Rating extends BaseEntity {
         return level;
     }
 
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "user=" + user +
+                ", level=" + level +
+                ", result=" + result +
+                '}';
+    }
+
     public void setLevel(Level level) {
         this.level = level;
     }
