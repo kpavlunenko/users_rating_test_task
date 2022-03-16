@@ -33,4 +33,9 @@ public class LevelDBImpl implements LevelDB {
     public List<Level> findAll() {
         return levels;
     }
+
+    @Override
+    public void clear() {
+        this.levels = new ArrayList<Level>();
+    }
 }

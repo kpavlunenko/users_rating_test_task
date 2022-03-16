@@ -10,4 +10,5 @@ public interface BaseDB<ENTITY extends BaseEntity> {
     void create(ENTITY entity);
     Optional<ENTITY> findById(Long id);
     List<ENTITY> findAll();
+    void clear();
 }

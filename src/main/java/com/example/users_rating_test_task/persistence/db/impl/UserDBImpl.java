@@ -1,6 +1,7 @@
 package com.example.users_rating_test_task.persistence.db.impl;
 
 import com.example.users_rating_test_task.persistence.db.UserDB;
+import com.example.users_rating_test_task.persistence.entity.Rating;
 import com.example.users_rating_test_task.persistence.entity.User;
 import org.springframework.stereotype.Repository;
 
@@ -32,5 +33,10 @@ public class UserDBImpl implements UserDB {
     @Override
     public List<User> findAll() {
         return users;
+    }
+
+    @Override
+    public void clear() {
+        this.users = new ArrayList<User>();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.users_rating_test_task.persistence.db.impl;
 
 import com.example.users_rating_test_task.persistence.db.RatingDB;
+import com.example.users_rating_test_task.persistence.entity.Level;
 import com.example.users_rating_test_task.persistence.entity.Rating;
 import org.springframework.stereotype.Repository;
 
@@ -32,5 +33,10 @@ public class RatingDBImpl implements RatingDB {
     @Override
     public List<Rating> findAll() {
         return ratings;
+    }
+
+    @Override
+    public void clear() {
+        this.ratings = new ArrayList<Rating>();
     }
 }
